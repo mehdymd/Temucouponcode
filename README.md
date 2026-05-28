@@ -52,10 +52,8 @@ We update this page weekly. All codes were last verified on **May 28, 2026**.
 
 ---
 
-## 🔗 Live Coupon Page
+## 🔗 Links
 
-👉 **[View the full coupon page →](https://mehdymd.github.io/temucouponcode/)**
+👉 **[View the full coupon page →](https://mehdymd.github.io/temucouponcode/)**  
+🛒 **[Shop Temu with code ala014131 →](https://temu.to/k/pu8ahm4u1gm)**
 
----
-
-*Not affiliated with Temu. Coupon codes are user-shared and independently verified. All trademarks belong to their respective owners.*
