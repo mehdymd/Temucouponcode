@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,7 +36,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Structured Data: WebPage + SpeakableSpecification (for Google AI Overview / Gemini) -->
   <script type="application/ld+json">
@@ -183,7 +183,7 @@
 
   <!-- Google site verification & PWA hints -->
   <meta name="google-site-verification" content="" />
-  <meta name="theme-color" content="#09090b" />
+  <meta name="theme-color" content="#fb7701" />
   <link rel="manifest" href="/temucouponcode/manifest.json" />
 
   <!-- Structured Data: WebSite + SearchAction -->
@@ -218,277 +218,266 @@
 
   <style>
     :root {
-      --bg: #09090b;
-      --bg-soft: #0e0e12;
-      --surface: rgba(255,255,255,0.04);
-      --surface-2: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.09);
-      --border-2: rgba(255,255,255,0.14);
-      --text: #f4f4f5;
-      --muted: #a1a1aa;
-      --dim: #71717a;
-      --primary: #7c3aed;
-      --primary-2: #9333ea;
-      --cyan: #22d3ee;
-      --green: #34d399;
-      --amber: #fbbf24;
-      --grad: linear-gradient(110deg, #9333ea 0%, #7c3aed 40%, #22d3ee 100%);
-      --grad-soft: linear-gradient(135deg, rgba(124,58,237,.18), rgba(34,211,238,.12));
+      --bg: #fffdfb;
+      --bg-soft: #fff6ee;
+      --surface: #ffffff;
+      --border: #f1e7db;
+      --border-2: #e9dccc;
+      --ink: #211a12;
+      --body: #5b5247;
+      --muted: #8a8073;
+      --orange: #fb7701;
+      --orange-dark: #e35c00;
+      --orange-tint: #fff2e6;
+      --coral: #ff5a1f;
+      --grad: linear-gradient(135deg, #ff8a1e 0%, #fb5b01 100%);
+      --green: #16a34a;
+      --green-tint: #eafaf0;
+      --amber: #f59e0b;
       --radius: 22px;
       --radius-sm: 14px;
-      --shadow: 0 24px 60px -20px rgba(0,0,0,.7);
-      --glow: 0 0 0 1px rgba(124,58,237,.4), 0 18px 60px -12px rgba(124,58,237,.55);
-    }
-    [data-theme="light"] {
-      --bg: #fafafa; --bg-soft: #ffffff;
-      --surface: rgba(9,9,11,.025); --surface-2: rgba(9,9,11,.04);
-      --border: rgba(9,9,11,.09); --border-2: rgba(9,9,11,.16);
-      --text: #0c0c0f; --muted: #52525b; --dim: #71717a;
-      --shadow: 0 24px 60px -28px rgba(9,9,11,.28);
+      --shadow-sm: 0 2px 10px rgba(33,26,18,.05);
+      --shadow: 0 14px 44px -14px rgba(251,119,1,.22);
+      --shadow-lg: 0 30px 70px -24px rgba(251,119,1,.32);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg); color: var(--text); line-height: 1.6;
+      background: var(--bg); color: var(--body); line-height: 1.65;
       -webkit-font-smoothing: antialiased; overflow-x: hidden;
-      transition: background .4s ease, color .4s ease;
     }
-    h1,h2,h3,h4 { font-family: 'Manrope','Inter',sans-serif; letter-spacing: -.025em; line-height: 1.1; color: var(--text); }
+    h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans','Inter',sans-serif; color: var(--ink); letter-spacing: -.02em; line-height: 1.15; }
     a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 22px; }
 
-    /* ambient background glows */
-    .ambient { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
-    .ambient::before, .ambient::after {
-      content: ''; position: absolute; border-radius: 50%; filter: blur(120px); opacity: .5;
-    }
-    .ambient::before { width: 620px; height: 620px; top: -180px; left: -120px; background: radial-gradient(circle, rgba(124,58,237,.55), transparent 65%); }
-    .ambient::after  { width: 540px; height: 540px; top: 120px; right: -160px; background: radial-gradient(circle, rgba(34,211,238,.38), transparent 65%); }
-    [data-theme="light"] .ambient::before { opacity:.22 } [data-theme="light"] .ambient::after { opacity:.18 }
-    .grid-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none;
-      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 56px 56px; mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%); opacity: .5; }
-
-    /* cursor glow */
-    #cursor-glow { position: fixed; width: 460px; height: 460px; border-radius: 50%; pointer-events: none; z-index: 0;
-      background: radial-gradient(circle, rgba(124,58,237,.16), transparent 60%); transform: translate(-50%,-50%); transition: opacity .3s; opacity: 0; }
-    @media (hover:hover) and (pointer:fine) { #cursor-glow.on { opacity: 1; } }
+    /* warm ambient glows */
+    .ambient { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+    .ambient i { position: absolute; border-radius: 50%; filter: blur(120px); }
+    .ambient i:nth-child(1){ width:540px;height:540px;top:-220px;left:-120px;background:rgba(255,138,30,.30); }
+    .ambient i:nth-child(2){ width:460px;height:460px;top:60px;right:-180px;background:rgba(255,90,31,.18); }
 
     /* scroll progress */
-    #progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 200; background: var(--grad); box-shadow: 0 0 12px rgba(124,58,237,.7); }
+    #progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 200; background: var(--grad); }
+
+    /* ── TEMU LOGO ── */
+    .temu-logo { display: inline-flex; align-items: center; gap: 9px; }
+    .temu-bag { width: 34px; height: 34px; border-radius: 10px; background: var(--grad); display: grid; place-items: center; box-shadow: 0 6px 16px -4px rgba(251,119,1,.55); }
+    .temu-bag svg { width: 19px; height: 19px; }
+    .temu-word { font-family: 'Plus Jakarta Sans'; font-weight: 800; font-size: 1.4rem; color: var(--orange); letter-spacing: -.04em; }
+    .temu-word .sub { color: var(--ink); font-weight: 700; }
 
     /* ── NAV ── */
-    nav { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(18px) saturate(160%);
-      background: color-mix(in oklab, var(--bg) 72%, transparent); border-bottom: 1px solid var(--border); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; font-family: 'Manrope'; font-size: 1.12rem; }
-    .brand-mark { width: 38px; height: 38px; border-radius: 11px; background: var(--grad); display: grid; place-items: center; box-shadow: 0 8px 22px -6px rgba(124,58,237,.7); }
-    .brand-mark svg { width: 21px; height: 21px; }
-    .brand .accent { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .nav-links { display: flex; align-items: center; gap: 30px; }
-    .nav-links a:not(.nav-cta) { color: var(--muted); font-size: .92rem; font-weight: 500; transition: color .15s; }
-    .nav-links a:not(.nav-cta):hover { color: var(--text); }
-    .icon-btn { width: 40px; height: 40px; border-radius: 11px; border: 1px solid var(--border); background: var(--surface); color: var(--text); display: grid; place-items: center; cursor: pointer; transition: border-color .2s, background .2s; }
-    .icon-btn:hover { border-color: var(--border-2); background: var(--surface-2); }
-    .icon-btn svg { width: 18px; height: 18px; }
-    .nav-cta { padding: 10px 18px; border-radius: 11px; background: var(--grad); color: #fff; font-weight: 600; font-size: .9rem; box-shadow: 0 10px 26px -8px rgba(124,58,237,.65); transition: transform .15s, box-shadow .2s; }
-    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 16px 34px -8px rgba(124,58,237,.8); }
+    nav { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(14px) saturate(150%);
+      background: rgba(255,253,251,.8); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .nav-word { font-size: 1.2rem; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a:not(.nav-cta) { color: var(--body); font-size: .92rem; font-weight: 500; transition: color .15s; }
+    .nav-links a:not(.nav-cta):hover { color: var(--orange); }
+    .nav-cta { padding: 10px 19px; border-radius: 12px; background: var(--grad); color: #fff; font-weight: 600; font-size: .9rem; box-shadow: 0 8px 20px -6px rgba(251,119,1,.5); transition: transform .15s, box-shadow .2s; }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 12px 26px -6px rgba(251,119,1,.65); }
     @media (max-width: 860px){ .nav-links a:not(.nav-cta){ display:none; } }
-
     .magnetic { will-change: transform; }
 
     /* ── HERO ── */
-    .hero { position: relative; padding: 92px 0 64px; text-align: center; }
-    .badge-row { display: flex; justify-content: center; margin-bottom: 26px; }
-    .live-badge { display: inline-flex; align-items: center; gap: 9px; padding: 7px 16px; border-radius: 999px;
-      border: 1px solid var(--border-2); background: var(--surface); font-size: .82rem; font-weight: 600; color: var(--muted); }
-    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(52,211,153,.7); animation: pulse 2s infinite; }
-    @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(52,211,153,.6)} 70%{box-shadow:0 0 0 9px rgba(52,211,153,0)} 100%{box-shadow:0 0 0 0 rgba(52,211,153,0)} }
-    .hero h1 { font-size: clamp(2.5rem, 6.4vw, 4.6rem); font-weight: 800; }
-    .hero h1 .grad-text { background: linear-gradient(110deg,#a855f7,#7c3aed 35%,#22d3ee); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 6s linear infinite; }
-    @keyframes shimmer { to { background-position: 200% center; } }
-    .hero .sub { font-size: clamp(1.05rem,2.2vw,1.3rem); color: var(--muted); max-width: 620px; margin: 22px auto 0; }
-    .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 38px; }
+    .hero { position: relative; padding: 84px 0 60px; text-align: center; }
+    .badge-row { display: flex; justify-content: center; margin-bottom: 24px; }
+    .live-badge { display: inline-flex; align-items: center; gap: 9px; padding: 7px 16px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border-2); box-shadow: var(--shadow-sm); font-size: .82rem; font-weight: 600; color: var(--body); }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(22,163,74,.6); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(22,163,74,.55)} 70%{box-shadow:0 0 0 8px rgba(22,163,74,0)} 100%{box-shadow:0 0 0 0 rgba(22,163,74,0)} }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 800; }
+    .hero h1 .o { color: var(--orange); }
+    .hero .sub { font-size: clamp(1.05rem,2.2vw,1.28rem); color: var(--muted); max-width: 620px; margin: 22px auto 0; }
+    .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-weight: 600; font-size: 1rem; padding: 15px 26px; border-radius: 14px; cursor: pointer; border: 1px solid transparent; transition: transform .15s, box-shadow .2s, background .2s, border-color .2s; }
-    .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 16px 40px -12px rgba(124,58,237,.7); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 22px 50px -12px rgba(124,58,237,.85); }
-    .btn-ghost { background: var(--surface); border-color: var(--border-2); color: var(--text); }
-    .btn-ghost:hover { background: var(--surface-2); transform: translateY(-2px); }
+    .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 14px 34px -12px rgba(251,119,1,.6); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 44px -12px rgba(251,119,1,.75); }
+    .btn-ghost { background: var(--surface); border-color: var(--border-2); color: var(--ink); }
+    .btn-ghost:hover { background: var(--bg-soft); transform: translateY(-2px); }
     .btn svg { width: 18px; height: 18px; }
+    .trust-badges { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+    .trust-badges span { display: inline-flex; align-items: center; gap: 8px; font-size: .88rem; color: var(--body); font-weight: 500; }
+    .trust-badges svg { width: 17px; height: 17px; color: var(--green); }
 
-    .trust-badges { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
-    .trust-badges span { display: inline-flex; align-items: center; gap: 8px; font-size: .88rem; color: var(--muted); font-weight: 500; }
-    .trust-badges svg { width: 17px; height: 17px; color: var(--cyan); }
+    .savings { margin: 46px auto 0; max-width: 430px; padding: 26px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow); }
+    .savings .lbl { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
+    .savings .num { font-family: 'Plus Jakarta Sans'; font-weight: 800; font-size: clamp(2.2rem,6vw,3rem); margin-top: 6px; color: var(--orange); font-variant-numeric: tabular-nums; }
+    .savings .cap { font-size: .82rem; color: var(--muted); margin-top: 4px; }
 
-    /* live counter */
-    .savings { margin: 48px auto 0; max-width: 420px; padding: 26px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--grad-soft); backdrop-filter: blur(10px); box-shadow: var(--shadow); }
-    .savings .lbl { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; font-weight: 600; }
-    .savings .num { font-family: 'Manrope'; font-weight: 800; font-size: clamp(2.2rem,6vw,3rem); margin-top: 6px; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
-    .savings .cap { font-size: .82rem; color: var(--dim); margin-top: 4px; }
+    /* ── TICKER ── */
+    .ticker { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg-soft); overflow: hidden; }
+    .ticker-track { display: flex; gap: 44px; white-space: nowrap; padding: 13px 0; width: max-content; animation: scrollx 30s linear infinite; }
+    .ticker:hover .ticker-track { animation-play-state: paused; }
+    .ticker-track span { display: inline-flex; align-items: center; gap: 8px; font-size: .86rem; color: var(--body); font-weight: 500; }
+    .ticker-track b { color: var(--ink); } .ticker-track .pill { color: var(--orange); font-weight: 700; }
+    @keyframes scrollx { to { transform: translateX(-50%); } }
 
     /* ── SECTIONS ── */
     section.block { padding: 76px 0; position: relative; }
-    .sec-head { text-align: center; max-width: 620px; margin: 0 auto 48px; }
-    .sec-head .ey { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); padding: 5px 13px; border: 1px solid var(--border-2); border-radius: 999px; background: var(--surface); }
-    .sec-head h2 { font-size: clamp(1.9rem,4vw,2.8rem); font-weight: 800; margin-top: 16px; }
+    .block.tinted { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .sec-head { text-align: center; max-width: 620px; margin: 0 auto 46px; }
+    .sec-head .ey { display: inline-block; font-size: .76rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--orange-dark); padding: 5px 13px; border: 1px solid var(--border-2); border-radius: 999px; background: var(--orange-tint); }
+    .sec-head h2 { font-size: clamp(1.9rem,4vw,2.7rem); font-weight: 800; margin-top: 16px; }
     .sec-head p { color: var(--muted); margin-top: 14px; font-size: 1.02rem; }
 
     /* tabs */
     .tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 38px; flex-wrap: wrap; }
-    .tab { padding: 9px 18px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); font-weight: 600; font-size: .88rem; cursor: pointer; transition: all .2s; }
-    .tab:hover { color: var(--text); border-color: var(--border-2); }
-    .tab.active { color: #fff; background: var(--grad); border-color: transparent; box-shadow: 0 10px 26px -10px rgba(124,58,237,.7); }
+    .tab { padding: 9px 18px; border-radius: 999px; border: 1px solid var(--border-2); background: var(--surface); color: var(--body); font-weight: 600; font-size: .88rem; cursor: pointer; transition: all .2s; }
+    .tab:hover { color: var(--ink); border-color: var(--orange); }
+    .tab.active { color: #fff; background: var(--grad); border-color: transparent; box-shadow: 0 10px 24px -10px rgba(251,119,1,.6); }
 
     /* ── COUPON CARDS ── */
-    .coupon-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit,minmax(310px,1fr)); }
-    .coupon { position: relative; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); padding: 26px; overflow: hidden; transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s; }
-    .coupon::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: var(--grad); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity .3s; pointer-events: none; }
-    .coupon:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
-    .coupon:hover::before { opacity: 1; }
-    .coupon.feature { background: var(--grad-soft); }
+    .coupon-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit,minmax(312px,1fr)); }
+    .coupon { position: relative; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); padding: 26px; box-shadow: var(--shadow-sm); transition: transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s, border-color .28s; display: flex; flex-direction: column; }
+    .coupon:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--border-2); }
+    .coupon.feature { border-color: #ffd9b3; background: linear-gradient(180deg,#fffaf4,#fff); }
     .c-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
     .store { display: flex; align-items: center; gap: 11px; }
-    .store-logo { width: 44px; height: 44px; border-radius: 12px; background: var(--grad); display: grid; place-items: center; box-shadow: 0 8px 20px -8px rgba(124,58,237,.7); }
-    .store-logo svg { width: 22px; height: 22px; }
+    .store-logo { width: 46px; height: 46px; border-radius: 13px; background: var(--grad); display: grid; place-items: center; box-shadow: 0 8px 18px -8px rgba(251,119,1,.6); }
+    .store-logo svg { width: 24px; height: 24px; }
     .store h4 { font-size: 1rem; font-weight: 700; }
-    .store p { font-size: .78rem; color: var(--dim); }
-    .v-badge { display: inline-flex; align-items: center; gap: 5px; font-size: .72rem; font-weight: 700; color: var(--green); background: rgba(52,211,153,.12); border: 1px solid rgba(52,211,153,.28); padding: 4px 9px; border-radius: 999px; }
+    .store p { font-size: .78rem; color: var(--muted); }
+    .v-badge { display: inline-flex; align-items: center; gap: 5px; font-size: .72rem; font-weight: 700; color: var(--green); background: var(--green-tint); border: 1px solid #c9efd6; padding: 4px 9px; border-radius: 999px; }
     .v-badge svg { width: 12px; height: 12px; }
-    .discount-headline { font-family: 'Manrope'; font-weight: 800; font-size: 2rem; margin: 4px 0 6px; }
-    .discount-headline .o { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .discount-headline { font-family: 'Plus Jakarta Sans'; font-weight: 800; font-size: 2rem; margin: 4px 0 6px; color: var(--ink); }
+    .discount-headline .o { color: var(--orange); }
     .c-desc { color: var(--muted); font-size: .9rem; min-height: 40px; }
-    .c-meta { display: flex; gap: 16px; margin: 16px 0; }
-    .c-meta div { font-size: .78rem; color: var(--dim); display: flex; align-items: center; gap: 6px; }
+    .c-meta { display: flex; gap: 16px; align-items: center; margin: 16px 0; }
+    .c-meta > div:first-child { font-size: .78rem; color: var(--muted); display: flex; align-items: center; gap: 6px; white-space: nowrap; }
     .c-meta svg { width: 14px; height: 14px; color: var(--amber); }
-    .popbar { height: 5px; border-radius: 999px; background: var(--surface-2); overflow: hidden; margin-top: 4px; }
+    .popwrap { flex: 1; }
+    .popwrap span { font-size: .72rem; color: var(--muted); }
+    .popbar { height: 6px; border-radius: 999px; background: var(--bg-soft); overflow: hidden; margin-top: 4px; border: 1px solid var(--border); }
     .popbar i { display: block; height: 100%; border-radius: inherit; background: var(--grad); }
 
     /* reveal-to-copy */
     .reveal { position: relative; margin-top: 18px; }
-    .code-row { display: flex; align-items: stretch; border: 1.5px dashed var(--border-2); border-radius: var(--radius-sm); overflow: hidden; background: var(--bg-soft); }
-    .code-text { flex: 1; display: flex; align-items: center; padding: 0 18px; font-family: 'Manrope'; font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; }
+    .code-row { display: flex; align-items: stretch; border: 1.5px dashed var(--orange); border-radius: var(--radius-sm); overflow: hidden; background: var(--orange-tint); }
+    .code-text { flex: 1; display: flex; align-items: center; padding: 0 18px; font-family: 'Plus Jakarta Sans'; font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; color: var(--orange-dark); }
     .code-text.blurred { filter: blur(7px); user-select: none; transition: filter .35s; }
-    .copy-btn { border: 0; background: var(--grad); color: #fff; padding: 0 22px; min-height: 58px; font-weight: 700; font-size: .88rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; transition: filter .15s, transform .1s; }
-    .copy-btn:hover { filter: brightness(1.08); }
+    .copy-btn { border: 0; background: var(--orange); color: #fff; padding: 0 22px; min-height: 58px; font-weight: 700; font-size: .88rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; transition: background .15s, transform .1s; }
+    .copy-btn:hover { background: var(--orange-dark); }
     .copy-btn:active { transform: scale(.97); }
     .copy-btn.copied { background: var(--green); }
     .copy-btn svg { width: 15px; height: 15px; }
-    .reveal-hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; font-weight: 600; font-size: .92rem; color: var(--text); background: color-mix(in oklab, var(--bg-soft) 60%, transparent); backdrop-filter: blur(2px); border-radius: var(--radius-sm); border: 1.5px dashed var(--border-2); transition: opacity .3s; }
-    .reveal-hint svg { width: 16px; height: 16px; color: var(--cyan); }
+    .reveal-hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; font-weight: 700; font-size: .92rem; color: var(--orange-dark); background: color-mix(in oklab, var(--orange-tint) 78%, transparent); backdrop-filter: blur(2px); border-radius: var(--radius-sm); border: 1.5px dashed var(--orange); transition: opacity .3s; }
+    .reveal-hint svg { width: 16px; height: 16px; }
     .reveal.open .reveal-hint { opacity: 0; pointer-events: none; }
     .c-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
-    .chip { font-size: .76rem; font-weight: 600; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); background: var(--surface); }
-    .chip.ok { color: var(--green); border-color: rgba(52,211,153,.28); background: rgba(52,211,153,.1); }
-    .c-cta { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 18px; width: 100%; padding: 13px; border-radius: var(--radius-sm); background: var(--surface-2); border: 1px solid var(--border-2); font-weight: 600; transition: background .2s, transform .15s; }
-    .c-cta:hover { background: var(--surface); transform: translateY(-1px); }
+    .chip { font-size: .76rem; font-weight: 600; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--border-2); color: var(--body); background: var(--surface); }
+    .chip.ok { color: var(--green); border-color: #c9efd6; background: var(--green-tint); }
+    .c-cta { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 18px; width: 100%; padding: 13px; border-radius: var(--radius-sm); background: var(--ink); color: #fff; font-weight: 600; transition: background .2s, transform .15s; }
+    .c-cta:hover { background: #000; transform: translateY(-1px); }
     .c-cta svg { width: 16px; height: 16px; }
+    .card-spacer { margin-top: auto; }
+
+    /* ── TRENDING RAIL ── */
+    .rail { display: flex; gap: 18px; overflow-x: auto; padding: 6px 2px 18px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .rail::-webkit-scrollbar { display: none; }
+    .deal { scroll-snap-align: start; flex: 0 0 268px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .25s, box-shadow .25s; }
+    .deal:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .deal-img { height: 150px; background-size: cover; background-position: center; position: relative; }
+    .deal-img .htag { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,.45); color: #fff; font-size: .72rem; font-weight: 700; padding: 5px 11px; border-radius: 999px; backdrop-filter: blur(4px); }
+    .deal-body { padding: 18px; }
+    .deal-body h4 { font-size: 1.02rem; font-weight: 700; }
+    .deal-body p { color: var(--muted); font-size: .86rem; margin-top: 6px; }
+    .deal-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; color: var(--orange-dark); font-weight: 700; font-size: .88rem; }
+    .deal-link svg { width: 15px; height: 15px; }
 
     /* ── BENTO STATS ── */
     .bento { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
     @media (max-width: 820px){ .bento { grid-template-columns: repeat(2,1fr); } }
-    .stat-card { border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); padding: 30px 26px; position: relative; overflow: hidden; }
-    .stat-card.big { grid-column: span 2; background: var(--grad-soft); }
-    @media (max-width: 820px){ .stat-card.big { grid-column: span 2; } }
-    .stat-num { font-family: 'Manrope'; font-weight: 800; font-size: clamp(2rem,5vw,3rem); background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
+    .stat-card { border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); padding: 30px 26px; box-shadow: var(--shadow-sm); }
+    .stat-card.big { grid-column: span 2; background: linear-gradient(135deg,#fff3e8,#fff); }
+    .stat-num { font-family: 'Plus Jakarta Sans'; font-weight: 800; font-size: clamp(2rem,5vw,3rem); color: var(--orange); font-variant-numeric: tabular-nums; }
     .stat-lbl { color: var(--muted); margin-top: 6px; font-size: .92rem; }
 
     /* ── TESTIMONIALS ── */
-    .rail { display: flex; gap: 18px; overflow-x: auto; padding: 6px 2px 18px; scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none; }
-    .rail::-webkit-scrollbar { display: none; }
-    .tcard { scroll-snap-align: start; flex: 0 0 340px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); padding: 26px; }
+    .tgrid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 18px; }
+    .tcard { border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); padding: 26px; box-shadow: var(--shadow-sm); }
     .stars { color: var(--amber); font-size: .95rem; letter-spacing: 2px; }
-    .tcard p { color: var(--text); margin: 14px 0 18px; font-size: .96rem; line-height: 1.7; }
+    .tcard p { color: var(--ink); margin: 14px 0 18px; font-size: .95rem; line-height: 1.7; }
     .tperson { display: flex; align-items: center; gap: 12px; }
-    .avatar { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #fff; font-size: .95rem; }
-    .tperson b { display: block; font-size: .9rem; } .tperson span { font-size: .78rem; color: var(--dim); }
+    .avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-2); }
+    .tperson b { display: block; font-size: .9rem; color: var(--ink); } .tperson span { font-size: .78rem; color: var(--muted); }
 
     /* ── FAQ ── */
     .faq { max-width: 780px; margin: 0 auto; display: grid; gap: 12px; }
-    details { border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; background: var(--surface); transition: border-color .2s, background .2s; }
-    details[open] { border-color: var(--border-2); background: var(--surface-2); }
-    summary { list-style: none; cursor: pointer; padding: 19px 22px; font-weight: 600; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+    details { border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; background: var(--surface); box-shadow: var(--shadow-sm); transition: border-color .2s; }
+    details[open] { border-color: #ffd9b3; }
+    summary { list-style: none; cursor: pointer; padding: 19px 22px; font-weight: 600; font-size: 1rem; color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 14px; }
     summary::-webkit-details-marker { display: none; }
-    summary::after { content: ''; width: 11px; height: 11px; border-right: 2px solid var(--cyan); border-bottom: 2px solid var(--cyan); transform: rotate(45deg); margin-bottom: 3px; flex-shrink: 0; transition: transform .25s; }
+    summary::after { content: ''; width: 11px; height: 11px; border-right: 2px solid var(--orange); border-bottom: 2px solid var(--orange); transform: rotate(45deg); margin-bottom: 3px; flex-shrink: 0; transition: transform .25s; }
     details[open] summary::after { transform: rotate(-135deg); margin-bottom: -3px; }
-    .faq-body { padding: 0 22px 20px; color: var(--muted); font-size: .94rem; line-height: 1.8; }
-    .faq-body strong { color: var(--text); }
+    .faq-body { padding: 0 22px 20px; color: var(--body); font-size: .94rem; line-height: 1.8; }
+    .faq-body strong { color: var(--ink); }
 
     /* ── CTA STRIP ── */
-    .cta-strip { border-radius: 28px; padding: 56px 40px; text-align: center; background: var(--grad-soft); border: 1px solid var(--border-2); position: relative; overflow: hidden; box-shadow: var(--shadow); }
-    .cta-strip h2 { font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 800; }
-    .cta-strip p { color: var(--muted); margin: 14px auto 28px; max-width: 480px; }
+    .cta-strip { border-radius: 28px; padding: 56px 40px; text-align: center; background: var(--grad); position: relative; overflow: hidden; box-shadow: var(--shadow-lg); }
+    .cta-strip h2 { font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 800; color: #fff; }
+    .cta-strip p { color: rgba(255,255,255,.92); margin: 14px auto 28px; max-width: 500px; }
+    .cta-strip .btn-primary { background: #fff; color: var(--orange-dark); box-shadow: 0 14px 34px -12px rgba(0,0,0,.3); }
+    .cta-strip .btn-ghost { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.4); color: #fff; }
+    .cta-strip .btn-ghost:hover { background: rgba(255,255,255,.26); }
 
     /* ── FOOTER ── */
-    footer { border-top: 1px solid var(--border); padding: 60px 0 34px; margin-top: 30px; }
+    footer { border-top: 1px solid var(--border); padding: 56px 0 32px; margin-top: 30px; background: var(--bg-soft); }
     .foot-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.3fr; gap: 36px; }
     @media (max-width: 820px){ .foot-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
     .foot-brand p { color: var(--muted); font-size: .9rem; margin-top: 14px; max-width: 280px; }
-    .foot-col h4 { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); margin-bottom: 14px; }
-    .foot-col a { display: block; color: var(--muted); font-size: .92rem; margin-bottom: 11px; transition: color .15s; }
-    .foot-col a:hover { color: var(--text); }
+    .foot-col h4 { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 14px; }
+    .foot-col a { display: block; color: var(--body); font-size: .92rem; margin-bottom: 11px; transition: color .15s; }
+    .foot-col a:hover { color: var(--orange); }
     .news { display: flex; gap: 8px; margin-top: 14px; }
-    .news input { flex: 1; min-width: 0; padding: 12px 14px; border-radius: 11px; border: 1px solid var(--border-2); background: var(--surface); color: var(--text); font-size: .9rem; outline: none; transition: border-color .2s; }
-    .news input:focus { border-color: var(--primary); }
+    .news input { flex: 1; min-width: 0; padding: 12px 14px; border-radius: 11px; border: 1px solid var(--border-2); background: var(--surface); color: var(--ink); font-size: .9rem; outline: none; transition: border-color .2s; }
+    .news input:focus { border-color: var(--orange); }
     .news button { border: 0; background: var(--grad); color: #fff; padding: 0 18px; border-radius: 11px; font-weight: 600; cursor: pointer; font-size: .9rem; }
     .socials { display: flex; gap: 10px; margin-top: 18px; }
-    .socials a { width: 38px; height: 38px; border-radius: 11px; border: 1px solid var(--border); background: var(--surface); display: grid; place-items: center; transition: border-color .2s, transform .15s; }
-    .socials a:hover { border-color: var(--border-2); transform: translateY(-2px); }
-    .socials svg { width: 17px; height: 17px; color: var(--muted); }
-    .foot-sep { height: 1px; background: var(--grad); opacity: .4; margin: 40px 0 24px; border-radius: 2px; }
-    .foot-bottom { text-align: center; color: var(--dim); font-size: .82rem; }
+    .socials a { width: 38px; height: 38px; border-radius: 11px; border: 1px solid var(--border-2); background: var(--surface); display: grid; place-items: center; transition: border-color .2s, transform .15s; }
+    .socials a:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .socials svg { width: 17px; height: 17px; color: var(--body); }
+    .foot-sep { height: 1px; background: var(--grad); opacity: .5; margin: 40px 0 24px; border-radius: 2px; }
+    .foot-bottom { text-align: center; color: var(--muted); font-size: .82rem; }
 
     /* ── FAB ── */
-    .fab { position: fixed; right: 20px; bottom: 20px; z-index: 90; display: inline-flex; align-items: center; gap: 9px; padding: 14px 20px; border-radius: 999px; background: var(--grad); color: #fff; font-weight: 700; box-shadow: 0 16px 40px -10px rgba(124,58,237,.8); cursor: pointer; transition: transform .15s; transform: translateY(120px); }
+    .fab { position: fixed; right: 20px; bottom: 20px; z-index: 90; display: inline-flex; align-items: center; gap: 9px; padding: 14px 20px; border-radius: 999px; background: var(--grad); color: #fff; font-weight: 700; box-shadow: 0 16px 40px -10px rgba(251,119,1,.7); cursor: pointer; transition: transform .15s; transform: translateY(120px); }
     .fab.show { transform: translateY(0); }
     .fab:hover { transform: translateY(-3px); }
     .fab svg { width: 17px; height: 17px; }
     @media (max-width: 720px){ .fab span.txt { display:none; } .fab { padding: 15px; } }
 
     /* toast */
-    .toast { position: fixed; left: 50%; bottom: 92px; transform: translateX(-50%) translateY(20px); z-index: 300; background: var(--bg-soft); border: 1px solid var(--border-2); color: var(--text); padding: 13px 20px; border-radius: 14px; font-weight: 600; font-size: .92rem; display: flex; align-items: center; gap: 10px; opacity: 0; pointer-events: none; transition: all .3s cubic-bezier(.2,.8,.2,1); box-shadow: var(--shadow); }
+    .toast { position: fixed; left: 50%; bottom: 92px; transform: translateX(-50%) translateY(20px); z-index: 300; background: var(--ink); color: #fff; padding: 13px 20px; border-radius: 14px; font-weight: 600; font-size: .92rem; display: flex; align-items: center; gap: 10px; opacity: 0; pointer-events: none; transition: all .3s cubic-bezier(.2,.8,.2,1); box-shadow: var(--shadow); }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-    .toast svg { width: 18px; height: 18px; color: var(--green); }
+    .toast svg { width: 18px; height: 18px; color: #6ee7a8; }
 
     /* reveal on scroll */
     .reveal-up { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
     .reveal-up.in { opacity: 1; transform: none; }
 
-    /* deal ticker */
-    .ticker { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); overflow: hidden; }
-    .ticker-track { display: flex; gap: 48px; white-space: nowrap; padding: 13px 0; width: max-content; animation: scrollx 28s linear infinite; }
-    .ticker:hover .ticker-track { animation-play-state: paused; }
-    .ticker-track span { display: inline-flex; align-items: center; gap: 9px; font-size: .86rem; color: var(--muted); font-weight: 500; }
-    .ticker-track b { color: var(--text); } .ticker-track .pill { color: var(--cyan); }
-    @keyframes scrollx { to { transform: translateX(-50%); } }
-
     @media (prefers-reduced-motion: reduce){ *{ animation: none !important; transition: none !important; } .reveal-up{ opacity:1; transform:none; } }
   </style>
 </head>
 <body>
-  <div class="ambient"></div>
-  <div class="grid-bg"></div>
-  <div id="cursor-glow"></div>
+  <div class="ambient"><i></i><i></i></div>
   <div id="progress"></div>
 
   <!-- NAV -->
   <nav>
     <div class="wrap nav-inner">
-      <a class="brand" href="/temucouponcode/">
-        <span class="brand-mark">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 7l2.2 11.2a1 1 0 0 0 1 .8h11.6a1 1 0 0 0 1-.8L21 7M3 7l3-3h12l3 3M3 7h18M9 11v4M15 11v4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <a class="temu-logo" href="/temucouponcode/" aria-label="Temu Coupons home">
+        <span class="temu-bag">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8h12l-1 11a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1L6 8z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8a3 3 0 0 1 6 0" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
         </span>
-        Temu<span class="accent">Coupons</span>
+        <span class="temu-word nav-word">Temu<span class="sub">Coupons</span></span>
       </a>
       <div class="nav-links">
         <a href="#codes">Coupons</a>
         <a href="#trending">Trending</a>
         <a href="#stats">Stats</a>
         <a href="#faq">FAQ</a>
-        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
-          <svg id="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
         <a class="nav-cta magnetic" href="https://temu.to/k/pu8ahm4u1gm" rel="nofollow sponsored" target="_blank">Get Coupons</a>
       </div>
     </div>
@@ -498,11 +487,11 @@
   <header class="hero">
     <div class="wrap">
       <div class="badge-row reveal-up"><span class="live-badge"><span class="dot"></span> Verified live · Updated May 28, 2026</span></div>
-      <h1 class="reveal-up">Unlock Hidden Temu<br/><span class="grad-text">Discounts Instantly</span></h1>
-      <p class="sub reveal-up">Reveal the codes thousands are using right now. Get <strong style="color:var(--text)">30% off + a $100 bundle</strong> with <strong style="color:var(--text)">ala014131</strong> — works for new <em>and</em> existing users, worldwide.</p>
+      <h1 class="reveal-up">Save big on Temu with<br/><span class="o">code ala014131</span></h1>
+      <p class="sub reveal-up">Get <strong style="color:var(--ink)">30% off + a $100 coupon bundle</strong> instantly — the rare Temu code that works for new <em>and</em> existing users, anywhere in the world.</p>
       <div class="hero-cta reveal-up">
         <a class="btn btn-primary magnetic" href="#codes">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 11a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
           Get Coupons
         </a>
         <a class="btn btn-ghost magnetic" href="#trending">
@@ -517,7 +506,7 @@
       </div>
       <div class="savings reveal-up">
         <div class="lbl">Total saved by shoppers</div>
-        <div class="num" id="savings-num" data-target="2847193">$0</div>
+        <div class="num" id="savings-num" data-target="2847193" data-prefix="$">$0</div>
         <div class="cap">and counting — live across all regions 🌍</div>
       </div>
     </div>
@@ -557,7 +546,7 @@
           <article class="coupon feature reveal-up" data-cat="trending" itemscope itemtype="https://schema.org/Offer">
             <div class="c-top">
               <div class="store">
-                <span class="store-logo"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7l2.2 11.2a1 1 0 0 0 1 .8h11.6a1 1 0 0 0 1-.8L21 7M3 7l3-3h12l3 3M3 7h18M9 11v4M15 11v4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="store-logo"><svg viewBox="0 0 24 24" fill="none"><path d="M6 8h12l-1 11a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1L6 8z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8a3 3 0 0 1 6 0" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
                 <div><h4>Temu</h4><p>Best value · this month</p></div>
               </div>
               <span class="v-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Verified</span>
@@ -566,10 +555,7 @@
             <p class="c-desc" itemprop="description">Stack an instant 30% discount with a $100 coupon bundle on any order — the single best-value Temu code.</p>
             <div class="c-meta">
               <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg> 98% success</div>
-              <div style="flex:1">
-                <span style="white-space:nowrap">Popularity</span>
-                <div class="popbar"><i style="width:96%"></i></div>
-              </div>
+              <div class="popwrap"><span>Popularity</span><div class="popbar"><i style="width:96%"></i></div></div>
             </div>
             <div class="reveal" id="rev1">
               <div class="code-row">
@@ -597,7 +583,7 @@
           <article class="coupon reveal-up" data-cat="new" itemscope itemtype="https://schema.org/Offer">
             <div class="c-top">
               <div class="store">
-                <span class="store-logo"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7l2.2 11.2a1 1 0 0 0 1 .8h11.6a1 1 0 0 0 1-.8L21 7M3 7l3-3h12l3 3M3 7h18M9 11v4M15 11v4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="store-logo"><svg viewBox="0 0 24 24" fill="none"><path d="M6 8h12l-1 11a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1L6 8z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8a3 3 0 0 1 6 0" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
                 <div><h4>Temu</h4><p>App reward · new</p></div>
               </div>
               <span class="v-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Verified</span>
@@ -606,7 +592,7 @@
             <p class="c-desc" itemprop="description">Claim surprise free gifts inside the Temu app. Available to every user — no purchase required.</p>
             <div class="c-meta">
               <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg> 95% success</div>
-              <div style="flex:1"><span style="white-space:nowrap">Popularity</span><div class="popbar"><i style="width:88%"></i></div></div>
+              <div class="popwrap"><span>Popularity</span><div class="popbar"><i style="width:88%"></i></div></div>
             </div>
             <div class="reveal" id="rev2">
               <div class="code-row">
@@ -634,18 +620,19 @@
           <article class="coupon reveal-up" data-cat="expiring">
             <div class="c-top">
               <div class="store">
-                <span class="store-logo"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7l2.2 11.2a1 1 0 0 0 1 .8h11.6a1 1 0 0 0 1-.8L21 7M3 7l3-3h12l3 3M3 7h18M9 11v4M15 11v4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="store-logo"><svg viewBox="0 0 24 24" fill="none"><path d="M6 8h12l-1 11a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1L6 8z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8a3 3 0 0 1 6 0" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
                 <div><h4>Temu</h4><p>Existing users · guide</p></div>
               </div>
               <span class="v-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Verified</span>
             </div>
             <div class="discount-headline" style="font-size:1.7rem;">Already have an account?</div>
-            <p class="c-desc">Most codes only work for new users. <strong style="color:var(--text)">ala014131</strong> is the rare one that works for existing accounts too. See the full guide.</p>
+            <p class="c-desc">Most codes only work for new users. <strong style="color:var(--ink)">ala014131</strong> is the rare one that works for existing accounts too. See the full guide.</p>
             <div class="c-meta">
               <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg> Rare find</div>
-              <div style="flex:1"><span style="white-space:nowrap">Popularity</span><div class="popbar"><i style="width:82%"></i></div></div>
+              <div class="popwrap"><span>Popularity</span><div class="popbar"><i style="width:82%"></i></div></div>
             </div>
-            <a class="c-cta magnetic" href="existing-users/" style="margin-top:18px;">
+            <div class="card-spacer"></div>
+            <a class="c-cta magnetic" href="existing-users/">
               Open existing-users guide
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -656,16 +643,14 @@
     </section>
 
     <!-- TRENDING DEALS RAIL -->
-    <section class="block" id="trending" style="padding-top:0;">
+    <section class="block tinted" id="trending">
       <div class="wrap">
         <div class="sec-head reveal-up">
           <span class="ey">🔥 Trending now</span>
           <h2>Hot Temu deals this week</h2>
           <p>Popular categories shoppers are stacking with code ala014131 right now.</p>
         </div>
-        <div class="rail reveal-up" id="deal-rail">
-          <!-- deal cards injected by JS -->
-        </div>
+        <div class="rail reveal-up" id="deal-rail"></div>
       </div>
     </section>
 
@@ -694,7 +679,7 @@
             <div class="stat-lbl">Code success rate</div>
           </div>
           <div class="stat-card">
-            <div class="stat-num" data-target="2" >0</div>
+            <div class="stat-num" data-target="2">0</div>
             <div class="stat-lbl">Verified active codes</div>
           </div>
           <div class="stat-card big">
@@ -706,39 +691,39 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="block" style="padding-top:0;">
+    <section class="block tinted">
       <div class="wrap">
         <div class="sec-head reveal-up">
           <span class="ey">Loved by shoppers</span>
           <h2>What people are saying</h2>
         </div>
-        <div class="rail reveal-up">
+        <div class="tgrid reveal-up">
           <div class="tcard">
             <div class="stars">★★★★★</div>
             <p>“Couldn't believe ala014131 actually worked on my old account. Knocked 30% off instantly plus the bundle. Real deal.”</p>
-            <div class="tperson"><span class="avatar" style="background:linear-gradient(135deg,#9333ea,#22d3ee)">SM</span><div><b>Sofia M.</b><span>🇺🇸 United States</span></div></div>
+            <div class="tperson"><img class="avatar" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sofia M." loading="lazy" /><div><b>Sofia M.</b><span>🇺🇸 United States</span></div></div>
           </div>
           <div class="tcard">
             <div class="stars">★★★★★</div>
             <p>“Tried five other ‘codes’ that failed. This one applied first try and the $100 bundle showed up. Bookmarked.”</p>
-            <div class="tperson"><span class="avatar" style="background:linear-gradient(135deg,#7c3aed,#ec4899)">LR</span><div><b>Liam R.</b><span>🇨🇦 Canada</span></div></div>
+            <div class="tperson"><img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Liam R." loading="lazy" /><div><b>Liam R.</b><span>🇨🇦 Canada</span></div></div>
           </div>
           <div class="tcard">
             <div class="stars">★★★★★</div>
             <p>“The free gifts code is legit — claimed mine in the app in seconds. Clean site, no spam, just works.”</p>
-            <div class="tperson"><span class="avatar" style="background:linear-gradient(135deg,#22d3ee,#3b82f6)">AK</span><div><b>Anya K.</b><span>🇩🇪 Germany</span></div></div>
+            <div class="tperson"><img class="avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Anya K." loading="lazy" /><div><b>Anya K.</b><span>🇩🇪 Germany</span></div></div>
           </div>
           <div class="tcard">
             <div class="stars">★★★★★</div>
             <p>“Saved a heap on my first big Temu order. Reveal-and-copy made it dead simple. Highly recommend.”</p>
-            <div class="tperson"><span class="avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">JT</span><div><b>Jack T.</b><span>🇦🇺 Australia</span></div></div>
+            <div class="tperson"><img class="avatar" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Jack T." loading="lazy" /><div><b>Jack T.</b><span>🇦🇺 Australia</span></div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- HOW + FAQ -->
-    <section class="block" id="faq" style="padding-top:0;">
+    <!-- FAQ -->
+    <section class="block" id="faq">
       <div class="wrap">
         <div class="sec-head reveal-up">
           <span class="ey">Good to know</span>
@@ -778,7 +763,7 @@
       <div class="wrap">
         <div class="cta-strip reveal-up">
           <h2>Ready to save 30% on Temu?</h2>
-          <p>Copy code <strong style="color:var(--text)">ala014131</strong> and shop now — your discount and $100 bundle apply instantly at checkout.</p>
+          <p>Copy code <strong style="color:#fff">ala014131</strong> and shop now — your discount and $100 bundle apply instantly at checkout.</p>
           <div class="hero-cta" style="margin-top:0;">
             <button class="btn btn-primary magnetic" onclick="copyCode('code1', this)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -799,9 +784,9 @@
     <div class="wrap">
       <div class="foot-top">
         <div class="foot-brand">
-          <a class="brand" href="/temucouponcode/">
-            <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7l2.2 11.2a1 1 0 0 0 1 .8h11.6a1 1 0 0 0 1-.8L21 7M3 7l3-3h12l3 3M3 7h18M9 11v4M15 11v4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Temu<span class="accent">Coupons</span>
+          <a class="temu-logo" href="/temucouponcode/">
+            <span class="temu-bag"><svg viewBox="0 0 24 24" fill="none"><path d="M6 8h12l-1 11a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1L6 8z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8a3 3 0 0 1 6 0" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span class="temu-word">Temu<span class="sub">Coupons</span></span>
           </a>
           <p>Verified, working Temu coupon codes — updated daily so you always unlock the biggest savings.</p>
           <div class="socials">
@@ -818,7 +803,7 @@
         </div>
         <div class="foot-col">
           <h4>Resources</h4>
-          <a href="#how">How to use a code</a>
+          <a href="#faq">How to use a code</a>
           <a href="#faq">FAQ</a>
           <a href="#trending">Trending deals</a>
           <a href="https://temu.to/k/pu8ahm4u1gm" rel="nofollow sponsored" target="_blank">Shop on Temu</a>
@@ -846,17 +831,6 @@
   <div class="toast" id="toast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span id="toast-msg">Copied</span></div>
 
   <script>
-    /* ── THEME ── */
-    (function(){
-      var saved = localStorage.getItem('theme');
-      if (saved) document.documentElement.setAttribute('data-theme', saved);
-      document.getElementById('theme-toggle').addEventListener('click', function(){
-        var cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', cur);
-        localStorage.setItem('theme', cur);
-      });
-    })();
-
     /* ── TOAST + COPY ── */
     function showToast(msg){
       var t=document.getElementById('toast'); document.getElementById('toast-msg').textContent=msg;
@@ -868,7 +842,6 @@
     }
     function copyCode(id, btn){
       var node=document.getElementById(id); var code=node.textContent.trim();
-      // ensure revealed
       node.classList.remove('blurred');
       var wrap=node.closest('.reveal'); if(wrap) wrap.classList.add('open');
       function done(){
@@ -883,20 +856,13 @@
     }
     function subscribe(e){ e.preventDefault(); showToast('Subscribed! Codes incoming 🎉'); e.target.reset(); return false; }
 
-    /* ── SCROLL PROGRESS ── */
+    /* ── SCROLL PROGRESS + FAB ── */
     var prog=document.getElementById('progress');
     window.addEventListener('scroll', function(){
       var h=document.documentElement.scrollHeight-window.innerHeight;
       prog.style.width=(window.scrollY/h*100)+'%';
       document.getElementById('fab').classList.toggle('show', window.scrollY>700);
     }, {passive:true});
-
-    /* ── CURSOR GLOW ── */
-    (function(){
-      var g=document.getElementById('cursor-glow');
-      window.addEventListener('mousemove', function(e){ g.classList.add('on'); g.style.left=e.clientX+'px'; g.style.top=e.clientY+'px'; }, {passive:true});
-      window.addEventListener('mouseout', function(){ g.classList.remove('on'); });
-    })();
 
     /* ── MAGNETIC BUTTONS ── */
     (function(){
@@ -905,7 +871,7 @@
           el.addEventListener('mousemove', function(e){
             var r=el.getBoundingClientRect();
             var x=e.clientX-r.left-r.width/2, y=e.clientY-r.top-r.height/2;
-            el.style.transform='translate('+x*0.18+'px,'+y*0.22+'px)';
+            el.style.transform='translate('+x*0.16+'px,'+y*0.2+'px)';
           });
           el.addEventListener('mouseleave', function(){ el.style.transform=''; });
         });
@@ -926,8 +892,7 @@
       var start=performance.now(), dur=1600;
       function step(now){
         var p=Math.min(1,(now-start)/dur); var e=1-Math.pow(1-p,3);
-        var val=Math.floor(e*target);
-        el.textContent=pre+val.toLocaleString()+suf;
+        el.textContent=pre+Math.floor(e*target).toLocaleString()+suf;
         if(p<1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
@@ -956,30 +921,27 @@
         tab.classList.add('active');
         var f=tab.dataset.filter;
         document.querySelectorAll('.coupon-grid .coupon').forEach(function(c){
-          var show = f==='all' || c.dataset.cat===f;
-          c.style.display = show ? '' : 'none';
+          c.style.display = (f==='all' || c.dataset.cat===f) ? '' : 'none';
         });
       });
     });
 
-    /* ── TRENDING RAIL ── */
+    /* ── TRENDING RAIL (real category images) ── */
     (function(){
       var deals=[
-        {t:'Electronics & Gadgets', d:'Up to 70% off + 30% with code', tag:'🔥 Hot', g:'linear-gradient(135deg,#9333ea,#22d3ee)'},
-        {t:'Home & Kitchen', d:'Stack 30% off everyday essentials', tag:'Popular', g:'linear-gradient(135deg,#7c3aed,#ec4899)'},
-        {t:'Fashion & Apparel', d:'Trending styles, extra 30% off', tag:'✨ New', g:'linear-gradient(135deg,#22d3ee,#3b82f6)'},
-        {t:'Beauty & Care', d:'Best sellers + $100 bundle', tag:'🔥 Hot', g:'linear-gradient(135deg,#f59e0b,#ef4444)'},
-        {t:'Toys & Hobbies', d:'Family picks, save 30% today', tag:'Popular', g:'linear-gradient(135deg,#10b981,#22d3ee)'}
+        {t:'Electronics & Gadgets', d:'Up to 70% off + 30% with code', tag:'🔥 Hot', img:'https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=600&q=70'},
+        {t:'Home & Kitchen', d:'Stack 30% off everyday essentials', tag:'Popular', img:'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=600&q=70'},
+        {t:'Fashion & Apparel', d:'Trending styles, extra 30% off', tag:'✨ New', img:'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=600&q=70'},
+        {t:'Beauty & Care', d:'Best sellers + $100 bundle', tag:'🔥 Hot', img:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600&q=70'},
+        {t:'Toys & Hobbies', d:'Family picks, save 30% today', tag:'Popular', img:'https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&fit=crop&w=600&q=70'}
       ];
       var rail=document.getElementById('deal-rail');
       rail.innerHTML=deals.map(function(x){
-        return '<div class="tcard" style="flex:0 0 280px">'+
-          '<div style="height:120px;border-radius:14px;background:'+x.g+';display:flex;align-items:flex-end;padding:14px;margin-bottom:16px;">'+
-          '<span style="background:rgba(0,0,0,.35);color:#fff;font-size:.74rem;font-weight:700;padding:5px 11px;border-radius:999px;backdrop-filter:blur(4px)">'+x.tag+'</span></div>'+
-          '<h4 style="font-size:1.05rem;font-weight:700">'+x.t+'</h4>'+
-          '<p style="color:var(--muted);font-size:.88rem;margin-top:6px">'+x.d+'</p>'+
-          '<a class="c-cta magnetic" href="https://temu.to/k/pu8ahm4u1gm" rel="nofollow sponsored" target="_blank" style="margin-top:16px">Shop deal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>'+
-          '</div>';
+        return '<div class="deal">'+
+          '<div class="deal-img" style="background-image:linear-gradient(0deg,rgba(0,0,0,.12),rgba(0,0,0,0)),url('+x.img+')"><span class="htag">'+x.tag+'</span></div>'+
+          '<div class="deal-body"><h4>'+x.t+'</h4><p>'+x.d+'</p>'+
+          '<a class="deal-link" href="https://temu.to/k/pu8ahm4u1gm" rel="nofollow sponsored" target="_blank">Shop deal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>'+
+          '</div></div>';
       }).join('');
     })();
   </script>
