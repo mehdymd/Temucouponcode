@@ -25,4 +25,4 @@ Allow: /
 User-agent: ia_archiver
 Allow: /
 
-Sitemap: https://temucoupon.js.org/sitemap.xml
+Sitemap: https://temucoupon.nx.kg/sitemap.xml
