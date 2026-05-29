@@ -417,7 +417,8 @@
     .stars { color: var(--amber); font-size: .95rem; letter-spacing: 2px; }
     .tcard p { color: var(--ink); margin: 14px 0 18px; font-size: .95rem; line-height: 1.7; }
     .tperson { display: flex; align-items: center; gap: 12px; }
-    .avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-2); }
+    .avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-2); background: var(--bg-soft); flex-shrink: 0; }
+    .avatar[data-initials] { font-family: 'Plus Jakarta Sans', sans-serif; }
     .tperson b { display: block; font-size: .9rem; color: var(--ink); } .tperson span { font-size: .78rem; color: var(--muted); }
 
     /* ── FAQ ── */
@@ -784,26 +785,42 @@
           <span class="ey">Loved by shoppers</span>
           <h2>What people are saying</h2>
         </div>
-        <div class="tgrid reveal-up">
-          <div class="tcard">
-            <div class="stars">★★★★★</div>
-            <p>“Couldn't believe ala014131 actually worked on my old account. Knocked 30% off instantly plus the bundle. Real deal.”</p>
-            <div class=”tperson”><img class=”avatar” src=”https://randomuser.me/api/portraits/women/68.jpg” alt=”Sofia M.” loading=”lazy” /><div><b>Sofia M.</b><span>United States</span></div></div>
+        <div class=”tgrid reveal-up”>
+          <div class=”tcard”>
+            <div class=”stars”>★★★★★</div>
+            <p>”Couldn’t believe ala014131 actually worked on my old account. Knocked 30% off instantly plus the bundle. Real deal.”</p>
+            <div class=”tperson”>
+              <img class=”avatar” src=”https://randomuser.me/api/portraits/women/68.jpg” alt=”Sofia M.”
+                   onerror=”this.onerror=null;this.src=’https://ui-avatars.com/api/?name=Sofia+M&background=fb7701&color=fff&size=96&rounded=true&bold=true’” />
+              <div><b>Sofia M.</b><span>🇺🇸 United States</span></div>
+            </div>
           </div>
           <div class=”tcard”>
             <div class=”stars”>★★★★★</div>
             <p>”Tried five other ‘codes’ that failed. This one applied first try and the $100 bundle showed up. Bookmarked.”</p>
-            <div class=”tperson”><img class=”avatar” src=”https://randomuser.me/api/portraits/men/32.jpg” alt=”Liam R.” loading=”lazy” /><div><b>Liam R.</b><span>Canada</span></div></div>
+            <div class=”tperson”>
+              <img class=”avatar” src=”https://randomuser.me/api/portraits/men/32.jpg” alt=”Liam R.”
+                   onerror=”this.onerror=null;this.src=’https://ui-avatars.com/api/?name=Liam+R&background=e35c00&color=fff&size=96&rounded=true&bold=true’” />
+              <div><b>Liam R.</b><span>🇨🇦 Canada</span></div>
+            </div>
           </div>
           <div class=”tcard”>
             <div class=”stars”>★★★★★</div>
             <p>”The free gifts code is legit — claimed mine in the app in seconds. Clean site, no spam, just works.”</p>
-            <div class=”tperson”><img class=”avatar” src=”https://randomuser.me/api/portraits/women/44.jpg” alt=”Anya K.” loading=”lazy” /><div><b>Anya K.</b><span>Germany</span></div></div>
+            <div class=”tperson”>
+              <img class=”avatar” src=”https://randomuser.me/api/portraits/women/44.jpg” alt=”Anya K.”
+                   onerror=”this.onerror=null;this.src=’https://ui-avatars.com/api/?name=Anya+K&background=fb7701&color=fff&size=96&rounded=true&bold=true’” />
+              <div><b>Anya K.</b><span>🇩🇪 Germany</span></div>
+            </div>
           </div>
           <div class=”tcard”>
             <div class=”stars”>★★★★★</div>
             <p>”Saved a heap on my first big Temu order. Reveal-and-copy made it dead simple. Highly recommend.”</p>
-            <div class=”tperson”><img class=”avatar” src=”https://randomuser.me/api/portraits/men/75.jpg” alt=”Jack T.” loading=”lazy” /><div><b>Jack T.</b><span>Australia</span></div></div>
+            <div class=”tperson”>
+              <img class=”avatar” src=”https://randomuser.me/api/portraits/men/75.jpg” alt=”Jack T.”
+                   onerror=”this.onerror=null;this.src=’https://ui-avatars.com/api/?name=Jack+T&background=e35c00&color=fff&size=96&rounded=true&bold=true’” />
+              <div><b>Jack T.</b><span>🇦🇺 Australia</span></div>
+            </div>
           </div>
         </div>
       </div>
