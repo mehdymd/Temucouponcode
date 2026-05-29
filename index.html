@@ -441,22 +441,27 @@
     .cta-strip .btn-ghost:hover { background: rgba(255,255,255,.26); }
 
     /* ── FOOTER ── */
-    footer { border-top: 1px solid var(--border); padding: 56px 0 32px; margin-top: 30px; background: var(--bg-soft); }
-    .foot-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.3fr; gap: 36px; }
-    @media (max-width: 820px){ .foot-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
-    .foot-brand p { color: var(--muted); font-size: .9rem; margin-top: 14px; max-width: 280px; }
-    .foot-col h4 { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 14px; }
-    .foot-col a { display: block; color: var(--body); font-size: .92rem; margin-bottom: 11px; transition: color .15s; }
+    footer { border-top: 1px solid var(--border); padding: 40px 0 22px; margin-top: 20px; background: var(--bg-soft); }
+    .foot-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.4fr; gap: 28px; align-items: start; }
+    @media (max-width: 820px){ .foot-top { grid-template-columns: 1.4fr 1fr; gap: 24px 28px; } }
+    .foot-brand p { color: var(--muted); font-size: .86rem; margin-top: 10px; max-width: 260px; line-height: 1.55; }
+    .foot-col h4 { font-size: .74rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 10px; }
+    .foot-col a { display: block; color: var(--body); font-size: .88rem; margin-bottom: 8px; transition: color .15s; }
     .foot-col a:hover { color: var(--orange); }
-    .news { display: flex; gap: 8px; margin-top: 14px; }
-    .news input { flex: 1; min-width: 0; padding: 12px 14px; border-radius: 11px; border: 1px solid var(--border-2); background: var(--surface); color: var(--ink); font-size: .9rem; outline: none; transition: border-color .2s; }
+    .foot-col p { margin-bottom: 6px !important; }
+    .news { display: flex; gap: 8px; margin-top: 10px; }
+    .news input { flex: 1; min-width: 0; padding: 10px 13px; border-radius: 10px; border: 1px solid var(--border-2); background: var(--surface); color: var(--ink); font-size: .86rem; outline: none; transition: border-color .2s; }
     .news input:focus { border-color: var(--orange); }
-    .news button { border: 0; background: var(--grad); color: #fff; padding: 0 18px; border-radius: 11px; font-weight: 600; cursor: pointer; font-size: .9rem; }
-    .foot-shop { display: inline-flex; align-items: center; gap: 9px; margin-top: 18px; padding: 11px 20px; border-radius: 12px; background: var(--grad); color: #fff; font-weight: 600; font-size: .9rem; box-shadow: 0 8px 20px -8px rgba(251,119,1,.55); transition: transform .15s, box-shadow .2s; }
+    .news button { border: 0; background: var(--grad); color: #fff; padding: 0 16px; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: .86rem; white-space: nowrap; }
+    .foot-shop { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px 18px; border-radius: 11px; background: var(--grad); color: #fff; font-weight: 600; font-size: .86rem; box-shadow: 0 8px 20px -8px rgba(251,119,1,.55); transition: transform .15s, box-shadow .2s; }
     .foot-shop:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px rgba(251,119,1,.65); }
-    .foot-shop svg { width: 16px; height: 16px; }
-    .foot-sep { height: 1px; background: var(--grad); opacity: .5; margin: 40px 0 24px; border-radius: 2px; }
-    .foot-bottom { text-align: center; color: var(--muted); font-size: .82rem; }
+    .foot-shop svg { width: 15px; height: 15px; }
+    .foot-sep { height: 1px; background: var(--border); margin: 26px 0 18px; }
+    .foot-bottom { text-align: center; color: var(--muted); font-size: .8rem; }
+    /* slightly smaller logo in footer */
+    .foot-brand .logo-tblock { width: 40px; height: 40px; font-size: 1.85rem; border-radius: 10px; }
+    .foot-brand .logo-emu { font-size: 1.35rem; }
+    .foot-brand .logo-cc { font-size: .55rem; }
 
     /* ── FAB ── */
     .fab { position: fixed; right: 20px; bottom: 20px; z-index: 90; display: inline-flex; align-items: center; gap: 9px; padding: 14px 20px; border-radius: 999px; background: var(--grad); color: #fff; font-weight: 700; box-shadow: 0 16px 40px -10px rgba(251,119,1,.7); cursor: pointer; transition: transform .15s; transform: translateY(120px); }
@@ -916,7 +921,7 @@
         </div>
         <div class="foot-col">
           <h4>Get the best codes first</h4>
-          <p style="color:var(--muted);font-size:.9rem;margin-bottom:4px;">New verified Temu codes, straight to your inbox.</p>
+          <p style="color:var(--muted);font-size:.84rem;">New verified Temu codes, straight to your inbox.</p>
           <form class="news" onsubmit="return subscribe(event)">
             <input type="email" placeholder="you@email.com" aria-label="Email" required />
             <button type="submit">Notify me</button>
