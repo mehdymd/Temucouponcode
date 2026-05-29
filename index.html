@@ -261,18 +261,35 @@
     /* scroll progress */
     #progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 200; background: var(--grad); }
 
-    /* ── TEMU LOGO ── */
-    .temu-logo { display: inline-flex; align-items: center; gap: 10px; }
-    .temu-bag { width: 38px; height: 38px; border-radius: 12px; background: var(--grad); display: grid; place-items: center; box-shadow: 0 6px 20px -4px rgba(251,119,1,.5); flex-shrink: 0; }
-    .temu-bag svg { width: 22px; height: 22px; }
-    .temu-word { font-family: 'Plus Jakarta Sans'; font-weight: 800; font-size: 1.42rem; color: var(--orange); letter-spacing: -.04em; line-height: 1; }
-    .temu-word .sub { color: var(--ink); font-weight: 700; }
+    /* ── SITE LOGO ── */
+    .temu-logo { display: inline-flex; align-items: center; gap: 0; text-decoration: none; }
+    /* Orange "T" block — the price-tag mark */
+    .logo-tblock {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 46px; height: 46px; border-radius: 11px;
+      background: var(--grad);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.1rem; font-weight: 900; font-style: italic;
+      color: #fff; line-height: 1; flex-shrink: 0;
+      box-shadow: 0 6px 22px -4px rgba(251,119,1,.55);
+      position: relative; z-index: 1;
+      /* subtle ring decoration on left edge */
+      border-left: 4px solid rgba(27,42,74,.18);
+    }
+    /* Text part sitting flush against the T block */
+    .logo-text { display: flex; flex-direction: column; justify-content: center; padding-left: 5px; line-height: 1; }
+    .logo-emu { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.55rem; font-weight: 900; font-style: italic; color: var(--ink); letter-spacing: -.05em; line-height: 1; }
+    .logo-cc {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: .6rem; font-weight: 700;
+      color: #fff; letter-spacing: .07em; text-transform: uppercase;
+      background: var(--grad); border-radius: 5px;
+      padding: 2px 7px; margin-top: 5px; display: inline-block; width: fit-content;
+    }
 
     /* ── NAV ── */
     nav { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(14px) saturate(150%);
       background: rgba(255,253,251,.8); border-bottom: 1px solid var(--border); }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
-    .nav-word { font-size: 1.2rem; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a:not(.nav-cta) { color: var(--body); font-size: .92rem; font-weight: 500; transition: color .15s; }
     .nav-links a:not(.nav-cta):hover { color: var(--orange); }
@@ -518,10 +535,9 @@
       .bento { grid-template-columns: 1fr; }
       .stat-card.big { grid-column: span 1; }
       .nav-inner { height: 60px; }
-      .temu-bag { width: 34px; height: 34px; border-radius: 10px; }
-      .temu-bag svg { width: 19px; height: 19px; }
-      .temu-word { font-size: 1.2rem; }
-      .nav-word { font-size: 1.1rem; }
+      .logo-tblock { width: 38px; height: 38px; font-size: 1.75rem; border-radius: 9px; }
+      .logo-emu { font-size: 1.25rem; }
+      .logo-cc { font-size: .55rem; }
       .hero h1 { letter-spacing: -.025em; }
       .discount-headline { font-size: 1.65rem; }
       .cta-strip h2 { font-size: 1.6rem; }
@@ -537,11 +553,12 @@
   <!-- NAV -->
   <nav>
     <div class="wrap nav-inner">
-      <a class="temu-logo" href="/temucouponcode/" aria-label="Temu Coupons home">
-        <span class="temu-bag">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2z"/><line x1="9" y1="12" x2="15" y2="12"/></svg>
+      <a class="temu-logo" href="/temucouponcode/" aria-label="Temu Coupon Code home">
+        <span class="logo-tblock">T</span>
+        <span class="logo-text">
+          <span class="logo-emu">emu</span>
+          <span class="logo-cc">Coupon Code</span>
         </span>
-        <span class="temu-word nav-word">Temu<span class="sub">Coupons</span></span>
       </a>
       <div class="nav-links">
         <a href="#codes">Coupons</a>
@@ -854,9 +871,12 @@
     <div class="wrap">
       <div class="foot-top">
         <div class="foot-brand">
-          <a class="temu-logo" href="/temucouponcode/">
-            <span class="temu-bag"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2z"/><line x1="9" y1="12" x2="15" y2="12"/></svg></span>
-            <span class="temu-word">Temu<span class="sub">Coupons</span></span>
+          <a class="temu-logo" href="/temucouponcode/" aria-label="Temu Coupon Code home">
+            <span class="logo-tblock">T</span>
+            <span class="logo-text">
+              <span class="logo-emu">emu</span>
+              <span class="logo-cc">Coupon Code</span>
+            </span>
           </a>
           <p>Verified, working Temu coupon codes — updated daily so you always unlock the biggest savings.</p>
           <div class="socials">
