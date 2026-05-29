@@ -452,10 +452,9 @@
     .news input { flex: 1; min-width: 0; padding: 12px 14px; border-radius: 11px; border: 1px solid var(--border-2); background: var(--surface); color: var(--ink); font-size: .9rem; outline: none; transition: border-color .2s; }
     .news input:focus { border-color: var(--orange); }
     .news button { border: 0; background: var(--grad); color: #fff; padding: 0 18px; border-radius: 11px; font-weight: 600; cursor: pointer; font-size: .9rem; }
-    .socials { display: flex; gap: 10px; margin-top: 18px; }
-    .socials a { width: 38px; height: 38px; border-radius: 11px; border: 1px solid var(--border-2); background: var(--surface); display: grid; place-items: center; transition: border-color .2s, transform .15s; }
-    .socials a:hover { border-color: var(--orange); transform: translateY(-2px); }
-    .socials svg { width: 17px; height: 17px; color: var(--body); }
+    .foot-shop { display: inline-flex; align-items: center; gap: 9px; margin-top: 18px; padding: 11px 20px; border-radius: 12px; background: var(--grad); color: #fff; font-weight: 600; font-size: .9rem; box-shadow: 0 8px 20px -8px rgba(251,119,1,.55); transition: transform .15s, box-shadow .2s; }
+    .foot-shop:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px rgba(251,119,1,.65); }
+    .foot-shop svg { width: 16px; height: 16px; }
     .foot-sep { height: 1px; background: var(--grad); opacity: .5; margin: 40px 0 24px; border-radius: 2px; }
     .foot-bottom { text-align: center; color: var(--muted); font-size: .82rem; }
 
@@ -896,9 +895,10 @@
             </span>
           </a>
           <p>Verified, working Temu coupon codes — updated daily so you always unlock the biggest savings.</p>
-          <div class="socials">
-            <a href="https://temu.to/k/pu8ahm4u1gm" rel="nofollow sponsored" target="_blank" aria-label="Shop Temu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></a>
-          </div>
+          <a class="foot-shop magnetic" href="https://temu.to/k/pu8ahm4u1gm" rel="nofollow sponsored" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Shop on Temu
+          </a>
         </div>
         <div class="foot-col">
           <h4>Coupons</h4>
