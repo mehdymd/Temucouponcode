@@ -2,13 +2,13 @@
   "name": "Temu Coupon Codes 2026",
   "short_name": "Temu Coupons",
   "description": "Best Temu coupon code 2026 — ala014131 for 30% OFF + $100 bundle",
-  "start_url": "/temucouponcode/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#fff9f5",
   "theme_color": "#ff6900",
   "icons": [
     {
-      "src": "/temucouponcode/og-image.svg",
+      "src": "/og-image.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
