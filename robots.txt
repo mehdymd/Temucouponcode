@@ -25,4 +25,4 @@ Allow: /
 User-agent: ia_archiver
 Allow: /
 
-Sitemap: https://mehdymd.github.io/temucouponcode/sitemap.xml
+Sitemap: https://mehdymd.github.io/Temucouponcode/sitemap.xml

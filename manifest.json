@@ -8,7 +8,7 @@
   "theme_color": "#ff6900",
   "icons": [
     {
-      "src": "/temucouponcode/og-image.png",
+      "src": "/Temucouponcode/og-image.png",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
